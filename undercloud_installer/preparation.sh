@@ -14,4 +14,5 @@ yum -y install mlocate python-requests python3-pip yum-plugin-priorities epel-re
 updatedb
 pip3 install requests
 cp undercloud_install.sh /home/stack/undercloud_install.sh
+chmod 777 undercloud_install.sh
 su - stack  #preparation part ends here
