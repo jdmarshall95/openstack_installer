@@ -1,7 +1,6 @@
 #!/bin/bash
 
 hostnamectl set-hostname "undercloud.example.com"
-dhclient -r && dhclient
 echo "192.168.126.1 undercloud.example.com" >> /etc/hosts
 yum update -y
 useradd stack
