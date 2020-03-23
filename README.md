@@ -27,6 +27,7 @@
 В следущей главе мы рассмотрим действия, выполняемые данными скриптами подробнее
 ### Глава 2. Разбор содержимого скриптов (ручная установка)
 
+#### Разбор скрипта preparation.sh
 Первый скрипт **preparation.sh** подготавливает систему к установке undercloud.
 ```
 hostnamectl set-hostname "undercloud.example.com"
@@ -41,3 +42,34 @@ echo "192.168.126.1 undercloud.example.com" >> /etc/hosts
 yum update -y
 ```
 Обновляет систему.
+```
+useradd stack
+echo "enter_password_here" | passwd --stdin stack #CHANGE PASSWORD HERE
+echo "stack ALL=(root) NOPASSWD:ALL" | sudo tee -a /etc/sudoers.d/stack
+chmod 0440 /etc/sudoers.d/stack
+```
+Здесь происходит создание нового пользователя с именем "stack", настраивается
+его пароль (желательно его изменить) и настраивается разрешение пользователю
+выполнять команду *sudo*.
+
+```
+yum -y install mlocate python-requests python3-pip yum-plugin-priorities epel-release vim wget
+pip3 install requests
+```
+Здесь происходит установка всех необходимых в ходе установки утилит а также библиотеки requests.
+```
+updatedb
+```
+Данная команда генерирует базу данных для работы команды *locate*.
+
+```
+cp undercloud_install.sh /home/stack/undercloud_install.sh
+chmod 777 /home/stack/undercloud_install.sh
+cp my_undercloud.conf /home/stack/undercloud.conf
+```
+Здесь копируются файлы, необходимые для установки.
+```
+su - stack
+```
+Система переключается на пользователя stack.
+#### Разбор скрипта undercloud_install.sh
