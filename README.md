@@ -1,4 +1,4 @@
 # openstack_installer
-Automatic deployment for openstack
+Автоматическое развертывание базового openstack
 
-Here will be guidebook for openstack basic setup un physical nodes.
+1. Установка undercloud
