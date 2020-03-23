@@ -221,7 +221,7 @@ openstack overcloud image upload --image-path ~/images/
 ```
 neutron subnet-update  ctlplane-subnet --dns-nameserver 8.8.8.8
 ```
-Внесение информации о DNS в ctrlplane-subnet. Команда <code>openstack subnet list</> может показать список сетей.
+Внесение информации о DNS в ctrlplane-subnet. Команда <code>openstack subnet list</code> может показать список сетей.
 ```
 openstack overcloud node import --introspect --provide instackenv.json
 ```
