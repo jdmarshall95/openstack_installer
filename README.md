@@ -102,7 +102,7 @@ chmod 0440 /etc/sudoers.d/stack
 Здесь происходит создание нового пользователя с именем "stack", настраивается право выполнять команду *sudo*.
 
 ```Shell
-yum -y install mlocate python-requests python3-pip yum-plugin-priorities epel-release vim wget
+yum -y install mlocate python-requests git python3-pip yum-plugin-priorities epel-release vim wget
 pip3 install requests
 ```
 Здесь происходит установка всех необходимых в ходе установки утилит а также
@@ -114,6 +114,9 @@ updatedb
 
 ```Shell
 cp undercloud_install.sh /home/stack/undercloud_install.sh
+cp ../overcloud_installer/instackenv.json /home/stack/instackenv.json
+cp ../overcloud_install/overcloud_install.sh /home/stack/overcloud_install.sh
+chmod 777 /home/stack/overcloud_install.sh
 chmod 777 /home/stack/undercloud_install.sh
 cp my_undercloud.conf /home/stack/undercloud.conf
 ```
@@ -131,7 +134,7 @@ sudo -E tripleo-repos -b stein current
 Здесь происходит установка репозиториев tripleo и выбор версии stein. В репозитории находится версия 2020-03-10 03:18, однако, при желании можно скачать [отсюда](https://trunk.rdoproject.org/centos7/current/) наиболее свежую версию - переходим по ссылке, находим самый свежий *python2-tripleo-repos*, копируем адрес и скачиваем файл с помощью *wget* (данный функционал не предусматривается автоматическим развертыванием).
 
 ```Shell
-sudo yum install python-tripleoclient -y
+sudo yum -y install python-tripleoclient leatherman
 ```
 Скачивание файлов openstack из подключенного выше репозитория.
 
@@ -197,3 +200,4 @@ cd rubygems-$version
 gem install bundler chef ruby-shadow --no-ri --no-rdoc
 ```
 Установка chef-solo
+#### Разбор скрипта overcloud_install.sh
