@@ -79,6 +79,7 @@ Overcloud Deployed
 ```
 После выполнения скрипта станет доступен полноценный openstack.
 ![Openstack](https://i.imgur.com/mCrg446.png)
+
 В следущей главе мы рассмотрим действия, выполняемые данными скриптами подробнее
 ### Глава 2. Разбор содержимого скриптов (ручная установка)
 
@@ -201,3 +202,41 @@ gem install bundler chef ruby-shadow --no-ri --no-rdoc
 ```
 Установка chef-solo
 #### Разбор скрипта overcloud_install.sh
+```
+sudo wget https://images.rdoproject.org/pike/delorean/current-tripleo-rdo/overcloud-full.tar --no-check-certificate
+sudo wget https://images.rdoproject.org/pike/delorean/current-tripleo-rdo/ironic-python-agent.tar --no-check-certificate
+mkdir ~/images
+tar -xpvf ironic-python-agent.tar -C ~/images/
+tar -xpvf overcloud-full.tar -C ~/images/
+```
+Скачивание и распаковка образов.
+```
+. stackrc
+```
+Включение в shell функций для работы с openstack
+```
+openstack overcloud image upload --image-path ~/images/
+```
+Загрузка образов в openstack
+```
+neutron subnet-update  ctlplane-subnet --dns-nameserver 8.8.8.8
+```
+Внесение информации о DNS в ctrlplane-subnet. Команда <code>openstack subnet list</> может показать список сетей.
+```
+openstack overcloud node import --introspect --provide instackenv.json
+```
+Импорт нод из instackenv.json
+```
+openstack baremetal node set --property capabilities='profile:compute,boot_option:local' compute1-bravo #CHECK NAME!
+#openstack baremetal node set --property capabilities='profile:compute,boot_option:local' compute2-hotel
+openstack baremetal node set --property capabilities='profile:control,boot_option:local' controller1-charlie #CHECK NAME!
+```
+Настройка профилей нод
+```
+git clone https://github.com/hiraetari/heat-templates.git
+openstack overcloud deploy --templates /heat-templates
+```
+Скачивание темплейтов и запуск установки overcloud по данным темплейтам.
+В следущей главе будет рассмотрена самостоятельная настройка темплейтов.
+
+### Глава 3. Настройка темплейтов.
