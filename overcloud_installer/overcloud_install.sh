@@ -7,8 +7,8 @@ tar -xpvf overcloud-full.tar -C ~/images/
 openstack overcloud image upload --image-path ~/images/
 neutron subnet-update  ctlplane-subnet --dns-nameserver 8.8.8.8
 openstack overcloud node import --introspect --provide instackenv.json
-openstack baremetal node set --property capabilities='profile:compute,boot_option:local' compute1-bravo
+openstack baremetal node set --property capabilities='profile:compute,boot_option:local' compute1-bravo #CHECK NAME!
 #openstack baremetal node set --property capabilities='profile:compute,boot_option:local' compute2-hotel
-openstack baremetal node set --property capabilities='profile:control,boot_option:local' controller1-charlie
+openstack baremetal node set --property capabilities='profile:control,boot_option:local' controller1-charlie #CHECK NAME!
 git clone https://github.com/hiraetari/heat-templates.git
 openstack overcloud deploy --templates /heat-templates

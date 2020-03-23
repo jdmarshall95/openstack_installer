@@ -1,10 +1,10 @@
 {
     "nodes": [
         {
-            "name":"controller1-charlie", #node name
-            "pm_type":"pxe_ipmitool", #node control unit type
+            "name":"controller1-charlie",
+            "pm_type":"pxe_ipmitool",
             "mac":[
-                "00:25:90:34:14:17" #interface for PXE load mac
+                "00:25:90:34:14:17"
             ],
             "cpu":"8",
             "memory":"40",

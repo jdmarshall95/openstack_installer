@@ -11,6 +11,9 @@ yum -y install mlocate python-requests git python3-pip yum-plugin-priorities epe
 pip3 install requests
 updatedb
 cp undercloud_install.sh /home/stack/undercloud_install.sh
+cp ../overcloud_installer/instackenv.json /home/stack/instackenv.json
+cp ../overcloud_install/overcloud_install.sh /home/stack/overcloud_install.sh
+chmod 777 /home/stack/overcloud_install.sh
 chmod 777 /home/stack/undercloud_install.sh
 cp my_undercloud.conf /home/stack/undercloud.conf
 su - stack  #preparation part ends here
