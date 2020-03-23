@@ -1,0 +1,46 @@
+{
+    "nodes": [
+        {
+            "name":"controller1-charlie", #node name
+            "pm_type":"pxe_ipmitool", #node control unit type
+            "mac":[
+                "00:25:90:34:14:17" #interface for PXE load mac
+            ],
+            "cpu":"8",
+            "memory":"40",
+            "disk":"1000",
+            "arch":"x86_64",
+            "pm_user":"ADMIN",
+            "pm_password":"ADMIN",
+            "pm_addr":"10.133.102.176"
+        },
+        {
+            "name":"compute1-bravo",
+            "pm_type":"pxe_ipmitool",
+            "mac":[
+                "00:25:90:61:6C:99"
+            ],
+            "cpu":"8",
+            "memory":"40",
+            "disk":"136",
+            "arch":"x86_64",
+            "pm_user":"ADMIN",
+            "pm_password":"ADMIN",
+            "pm_addr":"10.133.102.170"
+        },
+        {
+            "name":"compute2-hotel",
+            "pm_type":"pxe_ilo",
+            "mac":[
+                "9c:b6:54:bb:27:20"
+            ],
+            "cpu":"8",
+            "memory":"4",
+            "disk":"1000",
+            "arch":"x86_64",
+            "pm_user":"ADMIN",
+            "pm_password":"ADMINADMIN",
+            "pm_addr":"10.133.102.174"
+        }
+    ]
+}
