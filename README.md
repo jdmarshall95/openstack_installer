@@ -225,7 +225,7 @@ neutron subnet-update  ctlplane-subnet --dns-nameserver 8.8.8.8
 ```
 openstack overcloud node import --introspect --provide instackenv.json
 ```
-Импорт нод из instackenv.json
+Импорт нод из instackenv.json и запуск интроспекции. Команда <code>openstack baremetal node list</code> отобразит список доступных нод.
 ```
 openstack baremetal node set --property capabilities='profile:compute,boot_option:local' compute1-bravo #CHECK NAME!
 #openstack baremetal node set --property capabilities='profile:compute,boot_option:local' compute2-hotel
