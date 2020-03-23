@@ -47,7 +47,7 @@ ESXI):
 ![Undercloud](https://i.imgur.com/1VLqTYn.png)
 #### Установка overcloud
 Перед установкой overcloud необходимо настроить файл instackenv.json, он определяет конфигурацию серверов (нод), на которых будет развернут overcloud. Информация об одной ноде выглядит примерно следующим образом:
-```Json
+```
 {
     "name":"node_name", # Имя ноды
     "pm_type":"pxe_ipmitool", # Тип управляющей платы ноды
