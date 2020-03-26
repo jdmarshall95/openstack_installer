@@ -1,5 +1,8 @@
 # openstack_installer
 ## Развертывание базового openstack
+### Полезные ссылки
+[Red Hat Customer Portal](https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/15/html/director_installation_and_usage/index) - большая база знаний по Openstack
+[Advanced Overcloud Customization] - наиболее полная информация по темплейтам overcloud (Heat Orchestration Templates)
 
 ### Общие рекомендации
 
@@ -239,4 +242,14 @@ openstack overcloud deploy --templates /heat-templates
 Скачивание темплейтов и запуск установки overcloud по данным темплейтам.
 В следущей главе будет рассмотрена самостоятельная настройка темплейтов.
 
-### Глава 3. Настройка темплейтов.
+### Глава 3. Настройка темплейтов
+Для установки overcloud необходимо сохранить и настроить темлейта. Существует два основных пути:
+  - Копирование репозитория ([оригинального](https://github.com/openstack/heat-templates) или [кастомного](https://github.com/hiraetari/heat-templates)) 
+  - Копирование поставляемых темплейтов из <code>/usr/share/openstack-tripleo-heat-templates</code>
+Второй вариант предпочтителен в случае, когда приходится создавать свои темплейты.
+
+Как правило, для простого запуска достаточно (и необходимо) создать свою конфигурацию сети, то есть отредактировать следующие файлы:
+- node-info.yaml
+- network-isolation.yaml 
+- roles_data.yaml
+- конфигурация сети на нодах + сопутствующие файлы
