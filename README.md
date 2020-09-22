@@ -237,7 +237,7 @@ openstack baremetal node set --property capabilities='profile:control,boot_optio
 Настройка профилей нод
 ```
 git clone https://github.com/hiraetari/heat-templates.git
-openstack overcloud deploy --templates /heat-templates
+openstack overcloud deploy --templates heat-templates
 ```
 Скачивание темплейтов и запуск установки overcloud по данным темплейтам.
 В следущей главе будет рассмотрена самостоятельная настройка темплейтов.
