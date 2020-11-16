@@ -1,5 +1,5 @@
-sudo wget https://images.rdoproject.org/pike/delorean/current-tripleo-rdo/overcloud-full.tar --no-check-certificate
-sudo wget https://images.rdoproject.org/pike/delorean/current-tripleo-rdo/ironic-python-agent.tar --no-check-certificate
+sudo wget https://images.rdoproject.org/stein/rdo_trunk/current-tripleo-rdo/overcloud-full.tar --no-check-certificate
+sudo wget https://images.rdoproject.org/stein/rdo_trunk/current-tripleo-rdo/ironic-python-agent.tar --no-check-certificate
 mkdir ~/images
 tar -xpvf ironic-python-agent.tar -C ~/images/
 tar -xpvf overcloud-full.tar -C ~/images/
