@@ -11,4 +11,4 @@ openstack baremetal node set --property capabilities='profile:compute,boot_optio
 #openstack baremetal node set --property capabilities='profile:compute,boot_option:local' compute2-hotel
 openstack baremetal node set --property capabilities='profile:control,boot_option:local' controller1-charlie #CHECK NAME!
 git clone https://github.com/hiraetari/heat-templates.git
-openstack overcloud deploy --templates /heat-templates
+openstack overcloud deploy --templates ~/heat-templates
